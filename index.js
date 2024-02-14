@@ -1,13 +1,23 @@
 
 const express = require('express')
-// const bodyParser = require ('body-parser')
 const app = express()
-// const users = require('./CONTROLLER/user')
-const port = 8000
-const personne = require('./src/routes/routerPersonne.js')
+const port = 8080
+const personne = require('./src/routes/routerPersonne.js');
+const { tweet } = require('./src/modèle/data.js');
 
-app.use(express.json()),
+
+
+
+
+app.use(express.json());
 app.use('/personne', personne);
+// app.get ("/personne/:id",(req,res)=>{
+//   const tweet=
+//   const id =req.params.id;
+//   res.json({
+//   tweet:personne[id]||null
+//   })
+// })
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 });
