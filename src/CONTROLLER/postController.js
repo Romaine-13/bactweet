@@ -12,13 +12,6 @@ const getData = (req, res) => {
 
 
  }
-// function saveData(contacts) {
-//   localStorage.setItem('contacts', JSON.stringify(contacts));
-// }
-// function getData() {
-//   return JSON.parse(localStorage.getItem('contacts'));
-
-// }
 
 
 const postData = (req, res) => {
@@ -36,11 +29,26 @@ const putData = (req, res) => {
   const user = tweet.find(user => user.id === req.body.id);
   const index = tweet.indexOf(user);
   tweet[index] = req.body;
-  getData(req,res)
   res.json(req.body);
+  getData(req,res)
  }
 
+ const deleteData=(req,res)=>{
+  const delet=req.body.id
+  const deleteTweet=tweet.find(delet=>delet.id===delet);
+  
+  if( deleteTweet!==-1){
+    tweet.splice(delet,1);
+    res.json({message:'deleted with succed', delet:delet})
+    getData(req,res)
+
+  }else{
+    res.json({message:'no  fund'})
+
+  }
+  
+ }
 
 module.exports = {
-  postData, getData, putData, 
+  postData, getData, putData,deleteData
 }
