@@ -19,6 +19,12 @@ let tweet=[
     },
     
 ]
-let u
+let users=[{
+    userId: 1,
+    userName:'MAIL LONDONI',
+    profil:'https://unsplash.com/fr/s/photos/images-gratuites"',
+    email:'maillondoni@gmail.com',
+    password:'rt@/&éœ'
+}]
 
-module.exports= {tweet}
+module.exports= {tweet, users}
