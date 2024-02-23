@@ -2,8 +2,9 @@
 const express = require('express')
 const app = express()
 const port = 8080
-const post = require('./src/routes/routerPersonne.js');
-const { tweet } = require('./src/modèle/data.js');
+const post = require('src/routes/routers.js')
+// const router =require('../routes/routers')
+const { tweet } = require('../modèle/data');
 
 
 
@@ -11,6 +12,7 @@ const { tweet } = require('./src/modèle/data.js');
 
 
 app.use(express.json());
+// app.use('/router',router)
 app.use('/post', post);
 // app.get ("/personne/:id",(req,res)=>{
 //   const tweet=

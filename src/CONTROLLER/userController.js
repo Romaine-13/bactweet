@@ -1,8 +1,9 @@
 const { v4: uuidv4 } = require('uuid');
-const { users } = require('../modèle/data');
+const { users } = require('src/modèle/User.js');
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
 
-
-const getUser = (req, res) => {
+ const getUser = (req, res) => {
     const id = req.params.userId
     res.status(200)
      res.json({ users})
@@ -43,4 +44,4 @@ const putUser= (req, res) => {
     }
     
    }
-   module.exports={ getUser, postUser,putUser,deleteUser}
+  //  module.exports={ getUser, postUser,putUser,deleteUser}
