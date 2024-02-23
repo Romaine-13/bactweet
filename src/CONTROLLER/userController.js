@@ -1,17 +1,14 @@
 const { v4: uuidv4 } = require('uuid');
-const { users } = require('src/modèle/User.js');
+const {users} = require('../modèle/User.js');
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
  const getUser = (req, res) => {
+
     const id = req.params.userId
     res.status(200)
      res.json({ users})
-    
-
    }
-
-
 const postUser = (req, res) => {
     let profil = req.body
     profil.image = req.file?.path;
@@ -20,7 +17,6 @@ const postUser = (req, res) => {
     getUser(req, res)
   
   }
-
 const putUser= (req, res) => {
     const user = users.find(user => user.userId === req.body.id);
     const index = users.indexOf(user);
@@ -44,4 +40,4 @@ const putUser= (req, res) => {
     }
     
    }
-  //  module.exports={ getUser, postUser,putUser,deleteUser}
+   module.exports={ getUser, postUser,putUser,deleteUser}

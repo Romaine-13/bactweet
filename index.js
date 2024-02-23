@@ -1,26 +1,16 @@
 
 const express = require('express')
 const app = express()
-const port = 8080
-const post = require('src/routes/routers.js')
-// const router =require('../routes/routers')
-const { tweet } = require('../modèle/data');
+const port = 5000
+const personne = require('./src/routes/routers.js');
+const { tweet } = require('./src/modèle/data.js');
 
 
 
 
-
-
+app.use(express.urlencoded({extended:true}))
 app.use(express.json());
-// app.use('/router',router)
-app.use('/post', post);
-// app.get ("/personne/:id",(req,res)=>{
-//   const tweet=
-//   const id =req.params.id;
-//   res.json({
-//   tweet:personne[id]||null
-//   })
-// })
+app.use('/personne', personne);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 });
