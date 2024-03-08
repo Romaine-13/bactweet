@@ -1,4 +1,5 @@
-const router = express.Router();
+
+const{ getUser, postUser,putUser,deleteUser} = require('../CONTROLLER/userController.js')
 
 router.get('/',getUser)
 router.get('/:userId', (req,res)=>{
@@ -16,3 +17,4 @@ router.delete('/:userId',deleteUser)
 //     const search= re.params.id
 //     res.send(tweet[search])
 // })
+module.exports = router
